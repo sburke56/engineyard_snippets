@@ -1,0 +1,368 @@
+{
+  "db_slaves": [
+    "ip-10-34-143-87.eu-west-1.compute.internal"
+  ],
+  "aws_secret_key": "redacted",
+  "ruby_version": "Ruby 1.9.3",
+  "user_ssh_key": [
+
+  ],
+  "internal_ssh_public_key": "ssh-rsa redacted \n",
+  "admin_ssh_key": "ssh-rsa redacted \n",
+  "backup_interval": 24,
+  "internal_ssh_private_key": "-----BEGIN RSA PRIVATE KEY-----\nredacted\n-----END RSA PRIVATE KEY-----\n",
+  "instance_role": "app_master",
+  "utility_instances": [
+    {
+      "name": "resque",
+      "hostname": "ip-10-248-35-151.eu-west-1.compute.internal"
+    }
+  ],
+  "mailserver": "smtp.engineyard.com",
+  "crons": [
+
+  ],
+  "backup_window": 10,
+  "members": [
+    "ip-10-229-115-127.eu-west-1.compute.internal",
+    "ip-10-56-46-79.eu-west-1.compute.internal",
+    "ip-10-226-186-96.eu-west-1.compute.internal"
+  ],
+  "applications": {
+    "rails32app": {
+      "auth": {
+        "active": false
+      },
+      "newrelic": false,
+      "https_bind_port": 443,
+      "migration_command": "rake db:migrate",
+      "type": "rails3",
+      "repository_name": "git@github.com:blah/rails32app.git",
+      "http_bind_port": 80,
+      "run_deploy": false,
+      "revision": "",
+      "branch": "HEAD",
+      "run_migrations": true,
+      "deploy_action": "deploy",
+      "deploy_key": "-----BEGIN RSA PRIVATE KEY-----\nredacted\n-----END RSA PRIVATE KEY-----\n",
+      "services": [
+        {
+          "resource": "mongrel",
+          "mongrel_base_port": 5000,
+          "mongrel_mem_limit": 150,
+          "mongrel_instance_count": 3
+        },
+        {
+          "resource": "memcached",
+          "base_port": 11211,
+          "mem_limit": 128
+        }
+      ],
+      "recipes": [
+        "memcached",
+        "monit",
+        "nginx",
+        "unicorn"
+      ],
+      "vhosts": [
+        {
+          "name": "eu.awesomeapp.com",
+          "role": "eu_production"
+        }
+      ]
+    }
+  },
+  "gems_to_install": [
+
+  ],
+  "alert_email": "blah@engineyard.com",
+  "reporting_url": "https://cloud.engineyard.com/reporting/d0c4673f-d549-4090-940b-0e100966ae25",
+  "master_app_server": {
+    "private_dns_name": "ip-10-226-186-96.eu-west-1.compute.internal",
+    "public_ip": "ec2-46-137-97-195.eu-west-1.compute.amazonaws.com"
+  },
+  "users": [
+    {
+      "gid": "1000",
+      "username": "deploy",
+      "uid": "1000",
+      "comment": "",
+      "password": "redacted"
+    }
+  ],
+  "environment": {
+    "name": "eu_production",
+    "stack": "nginx_unicorn",
+    "framework_env": "production"
+  },
+  "newrelic_key": "redacted",
+  "aws_secret_id": "redacted",
+  "packages_to_install": [
+
+  ],
+  "db_host": "ec2-54-216-8-230.eu-west-1.compute.amazonaws.com",
+  "engineyard": {
+    "this": "i-3c786776",
+    "environment": {
+      "apps": [
+        {
+          "name": "rails32app",
+          "newrelic": false,
+          "components": [
+            {
+              "collection": [
+
+              ],
+              "key": "addons"
+            },
+            {
+              "key": "app_metadata"
+            }
+          ],
+          "database_name": "rails32app",
+          "migration_command": "rake db:migrate",
+          "type": "rails3",
+          "repository_name": "git@github.com:blah/rails32app.git",
+          "run_deploy": false,
+          "revision": "",
+          "bundled": null,
+          "branch": "HEAD",
+          "run_migrations": true,
+          "deploy_action": "deploy",
+          "deploy_key": "-----BEGIN RSA PRIVATE KEY-----\nredacted\n-----END RSA PRIVATE KEY-----\n",
+          "gems": [
+
+          ],
+          "vhosts": [
+            {
+              "ssl_cert": null,
+              "domain_name": "eu.awesomeapp.com"
+            }
+          ],
+          "ebuilds": [
+
+          ]
+        }
+      ],
+      "ssh_keys": [
+
+      ],
+      "name": "eu_production",
+      "aws_secret_key": "redacted",
+      "instances": [
+        {
+          "name": null,
+          "public_hostname": "ec2-54-216-8-230.eu-west-1.compute.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "27fdc2f5-e632-4170-92b0-96e3e81c0455",
+            "monitor_host": "ip-10-226-186-96.eu-west-1.compute.internal",
+            "endpoint_id": "i-2478676e"
+          },
+          "role": "db_master",
+          "enabled": true,
+          "id": "i-2478676e",
+          "private_hostname": "ip-10-208-50-241.eu-west-1.compute.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/27fdc2f5-e632-4170-92b0-96e3e81c0455",
+          "instance_api_config": {
+            "token": "27fdc2f5-e632-4170-92b0-96e3e81c0455",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 232578,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "27fdc2f5-e632-4170-92b0-96e3e81c0455"
+        },
+        {
+          "name": null,
+          "public_hostname": "ec2-46-137-97-195.eu-west-1.compute.amazonaws.com",
+          "components": [
+            {
+              "token": "faad2990096e7a75e1c8f422a1164354aca6747f",
+              "seed": "46.137.97.195",
+              "key": "newrelic"
+            },
+            {
+              "key": "ssmtp"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "d0c4673f-d549-4090-940b-0e100966ae25",
+            "monitor_host": "ip-10-226-186-96.eu-west-1.compute.internal",
+            "endpoint_id": "i-3c786776"
+          },
+          "role": "app_master",
+          "enabled": true,
+          "id": "i-3c786776",
+          "private_hostname": "ip-10-226-186-96.eu-west-1.compute.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/d0c4673f-d549-4090-940b-0e100966ae25",
+          "instance_api_config": {
+            "token": "d0c4673f-d549-4090-940b-0e100966ae25",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 232579,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "d0c4673f-d549-4090-940b-0e100966ae25"
+        },
+        {
+          "name": null,
+          "public_hostname": "ec2-79-125-38-88.eu-west-1.compute.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "f8c0b11a-8461-4bed-8e26-0ad33e445091",
+            "monitor_host": "ip-10-226-186-96.eu-west-1.compute.internal",
+            "endpoint_id": "i-2e786764"
+          },
+          "role": "app",
+          "enabled": true,
+          "id": "i-2e786764",
+          "private_hostname": "ip-10-229-115-127.eu-west-1.compute.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/f8c0b11a-8461-4bed-8e26-0ad33e445091",
+          "instance_api_config": {
+            "token": "f8c0b11a-8461-4bed-8e26-0ad33e445091",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 232580,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "f8c0b11a-8461-4bed-8e26-0ad33e445091"
+        },
+        {
+          "name": null,
+          "public_hostname": "ec2-54-216-2-53.eu-west-1.compute.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "f6065fd8-4618-4f1e-a16a-09b67e5087e5",
+            "monitor_host": "ip-10-226-186-96.eu-west-1.compute.internal",
+            "endpoint_id": "i-22786768"
+          },
+          "role": "app",
+          "enabled": true,
+          "id": "i-22786768",
+          "private_hostname": "ip-10-56-46-79.eu-west-1.compute.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/f6065fd8-4618-4f1e-a16a-09b67e5087e5",
+          "instance_api_config": {
+            "token": "f6065fd8-4618-4f1e-a16a-09b67e5087e5",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 232581,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "f6065fd8-4618-4f1e-a16a-09b67e5087e5"
+        },
+        {
+          "name": null,
+          "public_hostname": "ec2-176-34-93-84.eu-west-1.compute.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "b0cba18d-9b5e-4458-9cb8-564cc9fc757f",
+            "monitor_host": "ip-10-226-186-96.eu-west-1.compute.internal",
+            "endpoint_id": "i-2a786760"
+          },
+          "role": "db_slave",
+          "enabled": true,
+          "id": "i-2a786760",
+          "private_hostname": "ip-10-34-143-87.eu-west-1.compute.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/b0cba18d-9b5e-4458-9cb8-564cc9fc757f",
+          "instance_api_config": {
+            "token": "b0cba18d-9b5e-4458-9cb8-564cc9fc757f",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 232582,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "b0cba18d-9b5e-4458-9cb8-564cc9fc757f"
+        },
+        {
+          "name": "resque",
+          "public_hostname": "ec2-54-228-48-14.eu-west-1.compute.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "50ff2482-aa44-4886-92a3-347b4672cd47",
+            "monitor_host": "ip-10-226-186-96.eu-west-1.compute.internal",
+            "endpoint_id": "i-28786762"
+          },
+          "role": "util",
+          "enabled": true,
+          "id": "i-28786762",
+          "private_hostname": "ip-10-248-35-151.eu-west-1.compute.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/50ff2482-aa44-4886-92a3-347b4672cd47",
+          "instance_api_config": {
+            "token": "50ff2482-aa44-4886-92a3-347b4672cd47",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 232583,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "50ff2482-aa44-4886-92a3-347b4672cd47"
+        }
+      ],
+      "framework_env": "production",
+      "ruby_version": null,
+      "stonith_endpoint": "https://cloud.engineyard.com/stonith",
+      "region": "eu-west-1",
+      "ssh_username": "deploy",
+      "internal_ssh_public_key": "ssh-rsa redacted \n",
+      "admin_ssh_key": "ssh-rsa redacted \n",
+      "backup_interval": 24,
+      "internal_ssh_private_key": "-----BEGIN RSA PRIVATE KEY-----\nredacted\n-----END RSA PRIVATE KEY-----\n",
+      "components": [
+        {
+          "key": "ruby_193"
+        },
+        {
+          "version": "1.8.25",
+          "key": "rubygems"
+        },
+        {
+          "key": "environment_metadata"
+        },
+        {
+          "clusters": [
+
+          ],
+          "key": "metadata"
+        }
+      ],
+      "mailserver": "smtp.engineyard.com",
+      "crons": [
+
+      ],
+      "stats_password": "JeQKhQMMdd",
+      "stack_name": "nginx_unicorn",
+      "backup_window": 10,
+      "backup_bucket": "ey-backup-5819-ae6f891de6fb",
+      "db_stack_name": "mysql",
+      "ssh_password": "VBV8HxGdU7",
+      "alert_email": "blah@engineyard.com",
+      "monitoring": "monit",
+      "newrelic_key": "redacted",
+      "aws_secret_id": "redacted"
+    }
+  },
+  "haproxy": {
+    "username": "deploy",
+    "password": "redacted"
+  }
+}
